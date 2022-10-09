@@ -7,6 +7,8 @@
 
 対戦データから集計した局収支の点数分布図
 
+![Test Image 1](score_dist.png)
+
 ## Features
 * Json形式のファイルを時間順に並べ替えて出力 (json_parse.py)
 * 点数分布を牌譜データから描画 (score_dist.py)
