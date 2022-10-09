@@ -1,59 +1,45 @@
-# Name（リポジトリ/プロジェクト/OSSなどの名前）
+# Mjsoul Statistic Tool
 
-分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
+雀魂(https://game.mahjongsoul.com/)上の牌譜データの解析用のツール。
 
-"hoge"が何かを簡潔に紹介する
 
-# DEMO
+## DEMO
 
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
+対戦データから集計した局収支の点数分布図
 
-# Features
+## Features
+* Json形式のファイルを時間順に並べ替えて出力 (json_parse.py)
+* 点数分布を牌譜データから描画 (score_dist.py)
+* Json形式の手牌のシャンテン数を計算 (calc_shanten.py)
 
-"hoge"のセールスポイントや差別化などを説明する
+## Requirement
 
-# Requirement
+* conda(推奨) or pip
+* google chrome 
+* Tampermonkey
+* mahjong_env.ymlファイルに記載
 
-"hoge"を動かすのに必要なライブラリなどを列挙する
-
-* huga 3.5.2
-* hogehuga 1.0.2
-
-# Installation
-
-Requirementで列挙したライブラリなどのインストール方法を説明する
+## Installation
 
 ```bash
-pip install huga_package
+git clone https://github.com/shimyuki32/mjsoul_stat.git
+conda env create -n [env_name] -f mahjong_env.yml
 ```
 
-# Usage
+## Usage
+1. Chrome拡張機能 Tampermonkeyをインストールする
+https://www.tampermonkey.net/
+2. 下記スクリプトdownloadlogs.js をTampermonkeyに登録する
+https://gist.githubusercontent.com/Equim-chan/875a232a2c1d31181df8b3a8704c3112/raw/a0533ae7a0ab0158ca9ad9771663e94b82b61572/downloadlogs.js
+3. 雀魂牌譜urlを開いてsキーを押し、json形式のファイルをダウンロードする
+4. ダウンロードしたファイルをhaihu/ に配置する
 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
-
+サンプルの動かし方
 ```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
+cd src
+python json_parse.py
+python score_dist.py
 ```
-
-# Note
-
-注意点などがあれば書く
-
-# Author
-
-作成情報を列挙する
-
-* 作成者
-* 所属
-* E-mail
-
-# License
-ライセンスを明示する
-
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-
-社内向けなら社外秘であることを明示してる
-
-"hoge" is Confidential.
+## Author
+* shimyuki32
+* E-mail: shimyuki32@gmail.com
